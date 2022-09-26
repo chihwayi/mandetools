@@ -1,0 +1,35 @@
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet author="ignatious" id="1">
+        <sql>
+            CREATE DATABASE IF NOT EXISTS mohcctools
+        </sql>
+        <createTable schemaName="mohcctools" tableName="facilities">
+            <column autoIncrement="true" name="FacilityID" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="ProvinceCode" type="INT"></column>
+            <column name="DistrictCode" type="VARCHAR(255)"></column>
+            <column name="FacilityCode" type="VARCHAR(255)"></column>
+            <column name="FacilityName" type="VARCHAR(255)"></column>
+            <column name="FullFacilityCode" type="VARCHAR(255)"></column>
+            <column name="FullFacilityCodeDashes" type="VARCHAR(255)"></column>
+        </createTable>
+        <createTable schemaName="mohcctools" tableName="facilities_issued">
+            <column autoIncrement="true" name="issueId" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="provinceId" type="INT"></column>
+            <column name="districtId" type="VARCHAR(255)"></column>
+            <column name="facilityId" type="VARCHAR(255)"></column>
+            <column name="toolId" type="INT"></column>
+            <column name="languageId" type="INT"></column>
+            <column name="quantity" type="INT"></column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,29 @@
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet author="ignatious" id="1">
+        <sql>
+            CREATE DATABASE IF NOT EXISTS mohcctools
+        </sql>
+        <createTable schemaName="mohcctools" tableName="province">
+            <column autoIncrement="true" name="ID" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="ProvinceName" type="VARCHAR(255)"></column>
+            <column name="ProvinceCode" type="INT"></column>
+        </createTable>
+        <createTable schemaName="mohcctools" tableName="province_issued">
+            <column autoIncrement="true" name="issueId" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="provinceId" type="INT"></column>
+            <column name="toolId" type="INT"></column>
+            <column name="languageId" type="INT"></column>
+            <column name="quantityIssued" type="INT"></column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

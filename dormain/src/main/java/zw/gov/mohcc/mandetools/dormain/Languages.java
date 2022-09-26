@@ -17,6 +17,6 @@ public class Languages {
     @Column(name = "languageID")
     private int languageId;
 
-    @Column(name = "languagesName")
+    @Column(name = "languageName")
     private String languagesName;
 }

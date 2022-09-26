@@ -1,0 +1,21 @@
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet author="ignatious" id="1">
+        <sql>
+            CREATE DATABASE IF NOT EXISTS mohcctools
+        </sql>
+        <createTable schemaName="mohcctools" tableName="warehouse">
+            <column autoIncrement="true" name="warehouseID" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="toolsID" type="INT"></column>
+            <column name="quantityAvailable" type="INT"></column>
+            <column name="languageID" type="INT"></column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

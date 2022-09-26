@@ -1,0 +1,21 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <include file="/db/changelog/changes/create-facilities-table-changelog.xml"/>
+    <include file="/db/changelog/changes/insert-facilities-table-changelog.xml"/>
+    <include file="/db/changelog/changes/create-districts-table-changelog.xml"/>
+    <include file="/db/changelog/changes/insert-districts-table-changelog.xml"/>
+    <include file="/db/changelog/changes/create-province-table-changelog.xml"/>
+    <include file="/db/changelog/changes/insert-province-table-changelog.xml"/>
+    <include file="/db/changelog/changes/create-languages-table-changelog.xml"/>
+    <include file="/db/changelog/changes/insert-languages-table-changelog.xml"/>
+    <include file="/db/changelog/changes/create-programs-table-changelog.xml"/>
+    <include file="/db/changelog/changes/insert-programs-table-changelog.xml"/>
+    <include file="/db/changelog/changes/create-tools-table-changelog.xml"/>
+    <include file="/db/changelog/changes/insert-tools-table-changelog.xml"/>
+    <include file="/db/changelog/changes/create-eventlogs-table-changelog.xml"/>
+    <include file="/db/changelog/changes/create-warehouse-table-changelog.xml"/>
+</databaseChangeLog>

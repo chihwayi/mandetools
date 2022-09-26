@@ -15,10 +15,10 @@ public class Warehouse {
     @NonNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "warehouseID")
-    private int warehouseId;
+    private Long warehouseId;
 
     @Column(name = "toolsID")
-    private int toolsId;
+    private Long toolsId;
 
    @Column(name = "quantityAvailable")
     private int quantityAvailable;
@@ -26,6 +26,4 @@ public class Warehouse {
     @Column(name = "languageID")
     private int languageId;
 
-    @Column(name = "program")
-    private String program;
 }

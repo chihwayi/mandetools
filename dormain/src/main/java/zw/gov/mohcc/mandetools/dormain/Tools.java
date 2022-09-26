@@ -19,4 +19,7 @@ public class Tools {
 
     @Column(name = "toolName")
     private String toolName;
+
+    @Column(name = "programId")
+    private int programId;
 }
