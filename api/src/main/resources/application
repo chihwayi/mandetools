@@ -16,3 +16,4 @@ server.port=8080
 #liquibase properties
 spring.liquibase.change-log=classpath:db/changelog/db.changelog-master.xml
 logging.level.liquibase = INFO
+

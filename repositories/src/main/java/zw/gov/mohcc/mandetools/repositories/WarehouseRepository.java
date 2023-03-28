@@ -12,9 +12,11 @@ import java.util.List;
 @Repository
 public interface WarehouseRepository extends JpaRepository<Warehouse,Long>{
 
-    @Query(value = "SELECT warehouse.warehouseID,warehouse.quantityAvailable,languages.languageName,tools.toolName,programs.programName " +
+    @Query(value = "SELECT warehouse.warehouseID,warehouse.quantityAvailable,warehouse.dateCreated,warehouse.version,languages.languageName,tools.toolName,programs.programName " +
             "from warehouse JOIN tools ON warehouse.toolsID = tools.toolId JOIN languages ON warehouse.languageID = languages.languageID " +
             "JOIN programs ON tools.programId = programs.programId", nativeQuery=true)
     List<Tuple> findAllByWarehouseIdIsNotNull();
+
+
 
 }

@@ -8,6 +8,7 @@ import zw.gov.mohcc.mandetools.dtos.WarehouseDto;
 import zw.gov.mohcc.mandetools.repositories.WarehouseRepository;
 
 import javax.persistence.Tuple;
+import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -45,9 +46,11 @@ public class WarehouseServiceImpl implements WarehouseService {
                 t -> new WarehouseDto(
                         t.get(0, Integer.class),
                         t.get(1, Integer.class),
-                        t.get(2, String.class),
+                        t.get(2, java.sql.Date.class),
                         t.get(3, String.class),
-                        t.get(4, String.class)
+                        t.get(4, String.class),
+                        t.get(5, String.class),
+                        t.get(6, String.class)
                 )
         ).collect(Collectors.toList());
 

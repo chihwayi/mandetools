@@ -26,6 +26,7 @@
             <column name="districtId" type="VARCHAR(255)"></column>
             <column name="toolId" type="INT"></column>
             <column name="languageId" type="INT"></column>
+            <column name="dateCreated" type="DATE"></column>
             <column name="quantity" type="INT"></column>
         </createTable>
     </changeSet>

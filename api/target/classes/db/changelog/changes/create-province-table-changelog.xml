@@ -23,6 +23,7 @@
             <column name="provinceId" type="INT"></column>
             <column name="toolId" type="INT"></column>
             <column name="languageId" type="INT"></column>
+            <column name="dateCreated" type="DATE"></column>
             <column name="quantityIssued" type="INT"></column>
         </createTable>
     </changeSet>

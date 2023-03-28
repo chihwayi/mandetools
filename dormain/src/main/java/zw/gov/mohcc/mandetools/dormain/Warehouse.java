@@ -3,6 +3,7 @@ package zw.gov.mohcc.mandetools.dormain;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
@@ -23,7 +24,13 @@ public class Warehouse {
    @Column(name = "quantityAvailable")
     private int quantityAvailable;
 
+    @Column(name = "dateCreated")
+    private LocalDateTime dateCreated;
+
     @Column(name = "languageID")
     private int languageId;
+
+    @Column(name = "version")
+    private String version;
 
 }

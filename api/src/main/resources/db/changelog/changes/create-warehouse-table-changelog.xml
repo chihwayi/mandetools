@@ -15,7 +15,9 @@
             </column>
             <column name="toolsID" type="INT"></column>
             <column name="quantityAvailable" type="INT"></column>
+            <column name="dateCreated" type="DATE"></column>
             <column name="languageID" type="INT"></column>
+            <column name="version" type="VARCHAR(45)"></column>
         </createTable>
     </changeSet>
 </databaseChangeLog>

@@ -3,6 +3,7 @@ package zw.gov.mohcc.mandetools.dormain;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
@@ -20,12 +21,14 @@ public class ProvinceIssued {
     @Column(name = "provinceId")
     private int provinceId;
 
-
     @Column(name = "toolId")
     private int toolId;
 
     @Column(name = "languageId")
     private int languageId;
+
+    @Column(name = "dateCreated")
+    private LocalDateTime dateCreated;
 
     @Column(name = "quantityIssued")
     private int quantityIssued;

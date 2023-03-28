@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    url: jdbc:mysql://localhost:3306/mohcctools?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=false
+    password: password
+  jpa:
+    properties:
+      hibernate:
+        format_sql: 'false'
+    show-sql: 'true'
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.xml
+logging:
+  level:
+    liquibase: INFO
+server:
+  port: '8080'
+web:
+  cors:
+    allowed-origins: "http://localhost:4200"
+    allowed-methods: GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD
+    max-age: 3600
+    allowed-headers: "Requestor-Type"
+    exposed-headers: "X-Get-Header"

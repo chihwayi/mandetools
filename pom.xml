@@ -20,6 +20,7 @@
         <module>web</module>
         <module>api</module>
         <module>service</module>
+        <module>security</module>
     </modules>
 
     <properties>
@@ -88,7 +89,7 @@
             <plugin>
                 <groupId>com.github.ulisesbocchio</groupId>
                 <artifactId>jasypt-maven-plugin</artifactId>
-                <version>3.0.3</version>
+                <version>3.0.4</version>
             </plugin>
         </plugins>
 

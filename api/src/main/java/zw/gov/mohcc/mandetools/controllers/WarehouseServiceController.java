@@ -6,32 +6,46 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import zw.gov.mohcc.mandetools.dormain.Warehouse;
 import zw.gov.mohcc.mandetools.api.WarehouseService;
+import zw.gov.mohcc.mandetools.dtos.WarehouseDto;
 
+import java.util.List;
+import java.util.Optional;
+
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
+
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
+@RequestMapping("/api/v1")
 public class WarehouseServiceController {
 
     @Autowired
     private WarehouseService warehouseService;
 
-    @RequestMapping(value = "/tools", method = RequestMethod.GET)
-    public ResponseEntity<Object> getTools(){
-        return new ResponseEntity<>(warehouseService.getTools(), HttpStatus.FOUND);
+    @RequestMapping(value = "/warehouse", method = RequestMethod.GET, produces = APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<List<Warehouse>> getToolsInWarehouse(){
+        List<Warehouse> result = (List<Warehouse>) warehouseService.getTools();
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/warehouse", method = RequestMethod.POST)
-    public ResponseEntity<Object> createTool(@RequestBody Warehouse warehouse){
+    @RequestMapping(value = "/add_warehouse", method = RequestMethod.POST, produces = APPLICATION_JSON_VALUE, consumes = APPLICATION_JSON_VALUE)
+    public ResponseEntity<Warehouse> createWarehouseTool(@RequestBody Warehouse warehouse){
         warehouseService.addTools(warehouse);
-        return new ResponseEntity<>("Tool has been added successfully", HttpStatus.CREATED);
+        return new ResponseEntity<>(warehouse, HttpStatus.CREATED);
     }
 
-    @RequestMapping(value = "/tools/{toolsID}", method = RequestMethod.GET)
-    public ResponseEntity<Object> getToolByID(@PathVariable("toolsID") int toolsID){
-        return new ResponseEntity<>(warehouseService.findTools(toolsID), HttpStatus.FOUND);
+    @RequestMapping(value = "/warehouse/{toolsID}", method = RequestMethod.GET, produces = APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<Optional<Warehouse>> getWarehouseToolByID(@PathVariable("toolsID") int toolsID){
+        Optional<Warehouse> result = warehouseService.findTools(toolsID);
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public ResponseEntity<Object> showAvailableTools(){
-        return new ResponseEntity<>(warehouseService.findAllInWarehouse(), HttpStatus.FOUND);
+    @RequestMapping(value = "/list_warehouse", method = RequestMethod.GET, produces = APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<List<WarehouseDto>> showAvailableToolsInWarehouse(){
+        List<WarehouseDto> result = warehouseService.findAllInWarehouse();
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
 }
