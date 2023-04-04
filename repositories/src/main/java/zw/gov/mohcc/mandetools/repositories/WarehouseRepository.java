@@ -17,6 +17,19 @@ public interface WarehouseRepository extends JpaRepository<Warehouse,Long>{
             "JOIN programs ON tools.programId = programs.programId", nativeQuery=true)
     List<Tuple> findAllByWarehouseIdIsNotNull();
 
-
+    @Query(value = "WITH total AS ( SELECT warehouse.warehouseID ,SUM(warehouse.quantityAvailable) OVER(PARTITION BY tools.toolId) as quantityAvailable\n" +
+            "                      , warehouse.dateCreated\n" +
+            "                      , warehouse.version\n" +
+            "                      , languages.languageName\n" +
+            "                      , tools.toolName\n" +
+            "                      , programs.programName\n" +
+            "                      , ROW_NUMBER() OVER (PARTITION BY tools.toolId ORDER BY warehouse.dateCreated DESC) AS rownum\n" +
+            "                FROM warehouse JOIN tools ON warehouse.toolsID = tools.toolId JOIN languages ON \n" +
+            "                warehouse.languageID = languages.languageID JOIN programs ON tools.programId = programs.programId\n" +
+            "                )\n" +
+            "SELECT warehouseID, quantityAvailable, dateCreated, version, languageName, toolName, programName\n" +
+            "FROM total\n" +
+            "WHERE rownum = 1", nativeQuery=true)
+    List<Tuple> getWarehouseByQuantityAvailable();
 
 }

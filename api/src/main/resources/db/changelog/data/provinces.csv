@@ -1,13 +1,11 @@
-"ID";"ProvinceName";"ProvinceCode"
-10;"Bulawayo";"9"
-1;"Harare";"0"
-2;"Manicaland";"1"
-3;"Mashonaland Central";"2"
-4;"Mashonaland East";"3"
-5;"Mashonaland West";"4"
-11;"Masvikeni A";"10"
-12;"Masvikeni B";"11"
-9;"Masvingo";"8"
-6;"Matabeleland North";"5"
-7;"Matabeleland South";"6"
-8;"Midlands";"7"
+"ID";"ProvinceName";ProvinceCode
+10;"Bulawayo";9
+1;"Harare";0
+2;"Manicaland";1
+3;"Mashonaland Central";2
+4;"Mashonaland East";3
+5;"Mashonaland West";4
+9;"Masvingo";8
+6;"Matabeleland North";5
+7;"Matabeleland South";6
+8;"Midlands";7

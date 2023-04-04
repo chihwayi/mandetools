@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import zw.gov.mohcc.mandetools.dormain.Warehouse;
 import zw.gov.mohcc.mandetools.api.WarehouseService;
 import zw.gov.mohcc.mandetools.dtos.WarehouseDto;
+import zw.gov.mohcc.mandetools.dtos.WarehouseQuantitiesDto;
 
 import java.util.List;
 import java.util.Optional;
@@ -45,6 +46,13 @@ public class WarehouseServiceController {
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<List<WarehouseDto>> showAvailableToolsInWarehouse(){
         List<WarehouseDto> result = warehouseService.findAllInWarehouse();
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/quantities", method = RequestMethod.GET, produces = APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<List<WarehouseQuantitiesDto>> showAvailableQuantitiesInWarehouse(){
+        List<WarehouseQuantitiesDto> result = warehouseService.findAllQuantitiesInWarehouseGroupedByToolId();
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 

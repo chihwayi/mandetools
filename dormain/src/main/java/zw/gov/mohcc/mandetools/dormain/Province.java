@@ -21,5 +21,5 @@ public class Province {
     private String provinceName;
 
     @Column(name = "ProvinceCode")
-    private String provinceCode;
+    private int provinceCode;
 }
