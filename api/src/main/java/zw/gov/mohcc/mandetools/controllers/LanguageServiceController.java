@@ -25,4 +25,11 @@ public class LanguageServiceController {
         List<Languages> result =  languageService.listAllLanguageServiceConfig();
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
+
+    @RequestMapping(value = "/language/{name}", method = RequestMethod.GET, produces = APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<List<Languages>> getToolByName(@PathVariable("name") String name){
+        List<Languages> result = languageService.getLanguagesByName(name);
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
 }

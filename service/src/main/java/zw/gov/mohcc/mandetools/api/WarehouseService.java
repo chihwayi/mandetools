@@ -15,4 +15,5 @@ public interface WarehouseService {
     public abstract Collection<Warehouse> getTools();
     public abstract List<WarehouseDto> findAllInWarehouse();
     public abstract List<WarehouseQuantitiesDto> findAllQuantitiesInWarehouseGroupedByToolId();
+    public abstract List<WarehouseQuantitiesDto> findUniqueQuantitiesInWarehouseGroupedByToolId(List<WarehouseQuantitiesDto> warehouseQuantitiesDtos, int id);
 }

@@ -4,10 +4,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import zw.gov.mohcc.mandetools.api.ToolService;
-import zw.gov.mohcc.mandetools.api.WarehouseService;
 import zw.gov.mohcc.mandetools.dormain.Tools;
 
 import java.util.List;
+import java.util.Optional;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
@@ -24,6 +24,13 @@ public class ToolServiceController {
     public ResponseEntity<List<Tools>> getToolsInWarehouse(){
         List<Tools> result =  toolService.listAllToolsConfig();
 
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/tools/{name}", method = RequestMethod.GET, produces = APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<List<Tools>> getToolByName(@PathVariable("name") String name){
+        List<Tools> result = toolService.getToolsByName(name);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 }

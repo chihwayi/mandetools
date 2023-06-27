@@ -8,4 +8,5 @@ public interface ToolService {
     public abstract void configTools(Tools tools);
     public abstract void editToolsConfig(Tools tools);
     public abstract List<Tools> listAllToolsConfig();
+    public abstract List<Tools> getToolsByName(String name);
 }

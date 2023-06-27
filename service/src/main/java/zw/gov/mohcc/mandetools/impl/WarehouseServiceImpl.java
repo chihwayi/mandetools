@@ -80,6 +80,22 @@ public class WarehouseServiceImpl implements WarehouseService {
         return warehouseDtoList;
     }
 
+    @Override
+    public List<WarehouseQuantitiesDto> findUniqueQuantitiesInWarehouseGroupedByToolId(List<WarehouseQuantitiesDto> warehouseQuantitiesDtos, int id) {
+        List<WarehouseQuantitiesDto> list = new ArrayList<>();
+
+        warehouseQuantitiesDtos.stream().forEach(
+                t -> {
+                    int tool_id = t.getWarehouseId();
+                    if(tool_id == id){
+                        list.add(t);
+                    }
+        }
+        );
+
+        return list;
+    }
+
     public List<WarehouseDto> convertTupleToWarehouseDto(List<Tuple> tuples){
         return tuples.stream().map(
                 t -> new WarehouseDto(

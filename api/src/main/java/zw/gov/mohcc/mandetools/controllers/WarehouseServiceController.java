@@ -56,4 +56,15 @@ public class WarehouseServiceController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/quantities/{warehouseID}", method = RequestMethod.GET, produces = APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<List<WarehouseQuantitiesDto>> showOneSelectedQuantityInWarehouse(@PathVariable("warehouseID") int warehouseID){
+        List<WarehouseQuantitiesDto> result = warehouseService.findUniqueQuantitiesInWarehouseGroupedByToolId(getAllWarehouseDtos(),warehouseID);
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
+
+    public List<WarehouseQuantitiesDto> getAllWarehouseDtos(){
+        return warehouseService.findAllQuantitiesInWarehouseGroupedByToolId();
+    }
+
 }
